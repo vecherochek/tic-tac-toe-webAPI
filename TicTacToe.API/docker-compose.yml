@@ -18,17 +18,11 @@ services:
     ports:
       - "5432:5432"
     restart: always
-    volumes:
-      - db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "qwerty"
     networks:
       - dockerapi-dev
-
-volumes:
-  db:
-    driver: local
     
 networks:
   dockerapi-dev:

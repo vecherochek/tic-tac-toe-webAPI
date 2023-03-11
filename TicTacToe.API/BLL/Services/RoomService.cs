@@ -35,7 +35,8 @@ public class RoomService : IRoomService
         if (room is null)
             throw new InvalidOperationException("Room with this id does not exists");
         
-        room.Players.Remove(player);
+        room.RoomPlayers.Players.Remove(player);
+        
         _roomRepository.Update(room);
         _roomRepository.Save();
     }
@@ -49,12 +50,10 @@ public class RoomService : IRoomService
         var room = new Room
         {
             Id = Guid.NewGuid(),
-            Score = new RoomScore
+            RoomPlayers = new RoomPlayers
             {
-                XWins = 0,
-                OWins = 0
-            },
-            Players = new List<Player>(){player}
+                Players = new List<Player>(){player}
+            }
         };
         
         _roomRepository.Create(room);
@@ -72,10 +71,10 @@ public class RoomService : IRoomService
         if (room is null)
             throw new InvalidOperationException("Room with this id does not exists");
         
-        if (room.Players.Count >= 2)
+        if (room.RoomPlayers.Players.Count >= 2)
             throw new InvalidOperationException("The room is full");
         
-        room.Players.Add(player);
+        room.RoomPlayers.Players.Add(player);
         
         _roomRepository.Update(room);
         _roomRepository.Save();
@@ -91,15 +90,15 @@ public class RoomService : IRoomService
         if (room.Games.Last().IsFinished is false)
             throw new InvalidOperationException("The game in the room is not over yet");
         
-        if (room.Players.Count != 2)
+        if (room.RoomPlayers.Players.Count != 2)
              throw new InvalidOperationException("Not enough players to start the game");
 
         var randomId = new Random().Next(0, 2);
         var game =  new Game
         {
             Id = Guid.NewGuid(),
-            PlayerOId = room.Players[randomId].Id,
-            PlayerXId = room.Players[(randomId + 1) % 2].Id,
+            PlayerOId = room.RoomPlayers.Players[randomId].Id,
+            PlayerXId = room.RoomPlayers.Players[(randomId + 1) % 2].Id,
             IsFinished = false,
             Steps = new List<Step>()
         };

@@ -4,7 +4,6 @@ using TicTacToe.API.DAL.Repositories;
 
 namespace TicTacToe.API.BLL.Services;
 
-/// <inheritdoc />
 public class RegistrationService : IRegistrationService
 {
     private readonly PlayerRepository _playerRepository;
@@ -14,15 +13,21 @@ public class RegistrationService : IRegistrationService
         _playerRepository = repository;
     }
 
-    /// <inheritdoc />
     public void CreateNewPlayer(string nickname, byte[] password)
     {
         var player = _playerRepository.GetPlayerByNickname(nickname);
 
         if (player != null)
             throw new InvalidOperationException("The nickname already exists");
-
-        _playerRepository.Create(Player.CreateFromNicknameAndPass(nickname, password));
+        
+        player = new Player
+        {
+            Id = Guid.NewGuid(),
+            Nickname = nickname,
+            SaltedPassword = password
+        };
+        
+        _playerRepository.Create(player);
         _playerRepository.Save();
     }
 }

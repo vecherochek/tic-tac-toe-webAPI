@@ -8,11 +8,11 @@ namespace TicTacToe.API.DAL.Repositories;
 public class RoomRepository
     : Repository<Room>, IRoomRepository
 {
-    private RoomsDbContext DbContext { get; set; }
+    private GameDbContext DbContext { get; set; }
 
     public DbSet<Room> Rooms => DbContext.Rooms;
 
-    public RoomRepository(RoomsDbContext dbContext)
+    public RoomRepository(GameDbContext dbContext)
     {
         DbContext = dbContext;
     }

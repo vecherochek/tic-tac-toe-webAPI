@@ -8,11 +8,11 @@ namespace TicTacToe.API.DAL.Repositories;
 public class PlayerRepository
     : Repository<Player>, IPlayerRepository
 {
-    private PlayersDbContext DbContext { get; set; } // not cool
+    private GameDbContext DbContext { get; set; }
 
     public DbSet<Player> Players => DbContext.Players;
 
-    public PlayerRepository(PlayersDbContext dbContext)
+    public PlayerRepository(GameDbContext dbContext)
     {
         DbContext = dbContext;
     }
@@ -20,7 +20,7 @@ public class PlayerRepository
     public override Player? Get(Guid id)
     {
         return Players
-            .FirstOrDefault(game => game.Id == id);
+            .FirstOrDefault(player => player.Id == id);
     }
 
     public override void Create(Player item)

@@ -1,30 +1,24 @@
-﻿using Redis.OM.Modeling;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TicTacToe.API.BLL.Models;
 
 /// <summary>
-/// 
+/// Class describing the room
 /// </summary>
-
 public class Room
 {
     /// <summary>
-    /// 
+    /// Room Id
     /// </summary>
     public Guid Id { get; init; }
 
     /// <summary>
-    /// 
+    /// Room Players. Stored as json in the database
     /// </summary>
-    public List<Player> Players { get; set; } = new (2);
-    
+    [Column(TypeName = "jsonb")] public RoomPlayers RoomPlayers;
+
     /// <summary>
-    /// 
+    /// Room Games
     /// </summary>
     public List<Game> Games { get; set; }
-    
-    /// <summary>
-    /// 
-    /// </summary>
-    public RoomScore Score { get; set; }
 }

@@ -18,6 +18,11 @@ public class AuthController : Controller
         RegistrationService = registrationService;
     }
 
+    /// <summary>
+    /// Player Authorization
+    /// </summary>
+    /// <param name="request">The player's nickname and password from the account</param>
+    /// <returns></returns>
     [HttpPost("login")]
     public AuthResponse Authorization(AuthRequest request)
     {
@@ -25,9 +30,13 @@ public class AuthController : Controller
         return new AuthResponse(player);
     }
 
+    /// <summary>
+    /// Registration of a new player
+    /// </summary>
+    /// <param name="request">The player's nickname and password from the account</param>
     [HttpPost("register")]
     public void Registartion(RegistrationRequest request)
     {
-       RegistrationService.CreateNewPlayer(request.Nickanme, request.Password);
+        RegistrationService.CreateNewPlayer(request.Nickanme, request.Password);
     }
 }

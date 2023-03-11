@@ -18,6 +18,11 @@ public class RoomController : Controller
         RoomService = roomService;
     }
 
+    /// <summary>
+    /// Getting information about a room
+    /// </summary>
+    /// <param name="roomId">Room Id</param>
+    /// <returns></returns>
     [HttpGet("{roomId}")]
     public GetRoomResponse Get(Guid roomId)
     {
@@ -25,6 +30,11 @@ public class RoomController : Controller
         return new GetRoomResponse(room);
     }
 
+    /// <summary>
+    /// Creating a room
+    /// </summary>
+    /// <param name="request">Id of the player who created the room</param>
+    /// <returns></returns>
     [HttpPost("create-room")]
     public CreateRoomResponse CreateRoom(CreateRoomRequest request)
     {
@@ -32,18 +42,33 @@ public class RoomController : Controller
         return new CreateRoomResponse(room);
     }
 
+    /// <summary>
+    /// Adding a player to a room
+    /// </summary>
+    /// <param name="roomId">Room Id</param>
+    /// <param name="request">Player Id</param>
     [HttpPut("{roomId}/add-to-room")]
     public void AddPlayerToRoom(Guid roomId, AddPlayerToRoomRequest request)
     {
         RoomService.AddPlayerToRoom(roomId, request.playerId);
     }
 
+    /// <summary>
+    /// Removing a player from a room
+    /// </summary>
+    /// <param name="roomId">Room Id</param>
+    /// <param name="request">Player Id</param>
     [HttpPut("{roomId}/leave-room")]
     public void LeaveRoom(Guid roomId, AddPlayerToRoomRequest request)
     {
         RoomService.LeaveRoom(roomId, request.playerId);
     }
 
+    /// <summary>
+    /// Creating a game
+    /// </summary>
+    /// <param name="roomId">Room Id</param>
+    /// <returns></returns>
     [HttpPost("{roomId}/create-game")]
     public CreateGameResponse CraeteGame(Guid roomId)
     {

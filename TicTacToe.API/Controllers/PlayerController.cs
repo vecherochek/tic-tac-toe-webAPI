@@ -16,6 +16,11 @@ public class PlayerController : Controller
         _playerService = playerService;
     }
 
+    /// <summary>
+    /// Getting information about a player by Id
+    /// </summary>
+    /// <param name="playerId">Player Id</param>
+    /// <returns></returns>
     [HttpGet("{playerId}")]
     public GetPlayerResponse Get(Guid playerId)
     {
@@ -23,13 +28,23 @@ public class PlayerController : Controller
         return new GetPlayerResponse(player);
     }
 
-    [HttpGet("{nickName}")]
+    /// <summary>
+    /// Getting information about a player by Nickname
+    /// </summary>
+    /// <param name="nickName">Player nickname</param>
+    /// <returns></returns>
+    [HttpGet("[action]/{nickName}")]
     public GetPlayerResponse Get(string nickName)
     {
         var player = _playerService.GetPlayerByName(nickName);
         return new GetPlayerResponse(player);
     }
 
+    /// <summary>
+    /// Getting information about the player's total account by Nickname
+    /// </summary>
+    /// <param name="nickName">Player nickname</param>
+    /// <returns></returns>
     [HttpGet("score/{nickname}")]
     public GetPlayerScoreResponse GetPlayerScore(string nickName)
     {
@@ -37,13 +52,22 @@ public class PlayerController : Controller
         return new GetPlayerScoreResponse(score);
     }
 
-    [HttpGet("score/{playerid}")]
+    /// <summary>
+    /// Getting information about the player's total account by Id
+    /// </summary>
+    /// <param name="playerId">Player Id</param>
+    /// <returns></returns>
+    [HttpGet("[action]/score/{playerid}")]
     public GetPlayerScoreResponse GetPlayerScore(Guid playerId)
     {
         var score = _playerService.GetPlayerScoreById(playerId);
         return new GetPlayerScoreResponse(score);
     }
 
+    /// <summary>
+    /// Getting all the players
+    /// </summary>
+    /// <returns></returns>
     [HttpGet("all-players-list")]
     public GetAllPlayersListResponse GetAllPlayers()
     {
@@ -51,12 +75,21 @@ public class PlayerController : Controller
         return new GetAllPlayersListResponse(players);
     }
 
+    /// <summary>
+    /// Deleting a player
+    /// </summary>
+    /// <param name="playerId"></param>
     [HttpDelete("{playerId}")]
     public void DeletePlayer(Guid playerId)
     {
         _playerService.DeletePlayer(playerId);
     }
 
+    /// <summary>
+    /// Changing the online player
+    /// </summary>
+    /// <param name="playerId"></param>
+    /// <param name="request"></param>
     [HttpPut("{playerId}/online/")]
     public void UpdatePlayerOnline(Guid playerId, UpdatePlayerOnlineRequest request)
     {

@@ -16,6 +16,11 @@ public class GameController : Controller
         _gameService = gameService;
     }
 
+    /// <summary>
+    /// Getting information about the game by Id
+    /// </summary>
+    /// <param name="gameId">Game Id</param>
+    /// <returns></returns>
     [HttpGet("{gameId}")]
     public GetGameResponse Get(Guid gameId)
     {
@@ -23,6 +28,11 @@ public class GameController : Controller
         return new GetGameResponse(game);
     }
 
+    /// <summary>
+    /// Make a move
+    /// </summary>
+    /// <param name="gameId">Id of the game in which you need to make a step</param>
+    /// <param name="request">Step Information</param>
     [HttpPut("{gameId}/make-step")]
     public void MakeStep(Guid gameId, MakeStepRequest request)
     {

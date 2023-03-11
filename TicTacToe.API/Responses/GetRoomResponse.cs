@@ -2,4 +2,8 @@
 
 namespace TicTacToe.API.Responses;
 
-public record GetRoomResponse(Room Player);
+/// <summary>
+/// Get Room Response
+/// </summary>
+/// <param name="Room">Information about room</param>
+public record GetRoomResponse(Room Room);

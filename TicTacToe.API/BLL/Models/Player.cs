@@ -4,42 +4,29 @@ using System.Text.Json.Serialization;
 namespace TicTacToe.API.BLL.Models;
 
 /// <summary>
-/// 
+/// Класс, описывающий игрока
 /// </summary>
 public class Player
 {
-    public Player(string nickname, byte[] saltedPassword)
-    {
-        Id = Guid.NewGuid();
-        Nickname = nickname;
-        SaltedPassword = saltedPassword;
-    }
-
-    public static Player CreateFromNicknameAndPass(string nickname, byte[] saltedPassword)
-    {
-        return new Player(nickname, saltedPassword);
-    }
-
     /// <summary>
-    /// 
+    /// Id игрока
     /// </summary>
-    [Key]
     public Guid Id { get; set; }
 
     /// <summary>
-    /// 
+    /// Nickname игрока (уникальный)
     /// </summary>
 
     public string Nickname { get; set; }
 
     /// <summary>
-    /// 
+    /// Пороль от аккаунта
     /// </summary>
     [JsonIgnore]
     public byte[] SaltedPassword { get; set; }
 
     /// <summary>
-    /// 
+    /// Текущий онлайн игрока
     /// </summary>
     public bool IsOnline { get; set; }
 }

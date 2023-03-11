@@ -1,0 +1,16 @@
+﻿{
+  "AssemblyFilePath": "../bin/Debug/net6.0/TicTacToe.API.dll",
+  "DocumentationFilePath": "../bin/Debug/TicTacToe.API.xml",
+  "OutputDirectoryPath": ".",
+  "GeneratedAccessModifiers": "Public",
+  "GeneratedPages": "Assembly,Namespaces,Types",
+  "FileNameFactory": "FullName",
+  "UrlFactories": [
+    "DocItem",
+    "DotnetApi"
+  ],
+  "Sections": [
+    "Header",
+    "Default"
+  ]
+}

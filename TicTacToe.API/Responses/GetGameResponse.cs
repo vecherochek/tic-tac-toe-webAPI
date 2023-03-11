@@ -2,4 +2,8 @@
 
 namespace TicTacToe.API.Responses;
 
-public record GetGameResponse(Game Player);
+/// <summary>
+/// Get Game Response
+/// </summary>
+/// <param name="Game">Information about game</param>
+public record GetGameResponse(Game Game);

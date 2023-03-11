@@ -13,9 +13,7 @@ services.AddControllers();
 
 
 //services.AddDbContext<GameRedisDbContext>();
-services.AddDbContext<GamesDbContext>();
-services.AddDbContext<PlayersDbContext>();
-services.AddDbContext<RoomsDbContext>();
+services.AddDbContext<GameDbContext>();
 services.AddTransient<GameRepository>();
 services.AddTransient<PlayerRepository>();
 services.AddTransient<RoomRepository>();
@@ -47,14 +45,12 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseMiddleware<ErrorMiddleware>();
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    
 }
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
+app.UseMiddleware<ErrorMiddleware>();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapControllers();
 

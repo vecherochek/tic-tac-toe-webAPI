@@ -2,7 +2,7 @@
 using TicTacToe.API.BLL.Models;
 using TicTacToe.API.BLL.Services;
 using TicTacToe.API.DAL.Repositories;
-using TicTacToe.API.Requests.Room;
+using TicTacToe.API.Requests;
 using TicTacToe.API.Responses;
 
 namespace TicTacToe.API.Controllers;

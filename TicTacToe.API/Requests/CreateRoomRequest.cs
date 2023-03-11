@@ -1,4 +1,4 @@
-﻿namespace TicTacToe.API.Requests.Room;
+﻿namespace TicTacToe.API.Requests;
 
 /// <summary>
 /// Create Room Request

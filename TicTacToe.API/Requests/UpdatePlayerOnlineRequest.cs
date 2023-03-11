@@ -1,4 +1,4 @@
-﻿namespace TicTacToe.API.Requests.Player;
+﻿namespace TicTacToe.API.Requests;
 
 /// <summary>
 /// Update Player Online Request

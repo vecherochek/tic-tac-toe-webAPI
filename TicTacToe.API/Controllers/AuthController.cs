@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TicTacToe.API.BLL.Services;
-using TicTacToe.API.Requests.Auth;
+using TicTacToe.API.Requests;
 using TicTacToe.API.Responses;
 
 namespace TicTacToe.API.Controllers;

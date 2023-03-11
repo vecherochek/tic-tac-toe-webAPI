@@ -1,6 +1,6 @@
 ﻿using TicTacToe.API.BLL.Models;
 
-namespace TicTacToe.API.Requests.Game;
+namespace TicTacToe.API.Requests;
 
 /// <summary>
 /// Make Step Request

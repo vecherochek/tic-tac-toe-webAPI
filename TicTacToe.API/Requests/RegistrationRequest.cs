@@ -1,4 +1,4 @@
-﻿namespace TicTacToe.API.Requests.Auth;
+﻿namespace TicTacToe.API.Requests;
 
 /// <summary>
 /// Registration Request

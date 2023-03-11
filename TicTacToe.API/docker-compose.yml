@@ -4,10 +4,10 @@ services:
   tic-tac-toe_api:
     build: ./
     ports:
-      - "80:80"
-      - "443:443"
+      - "8000:80"
+      - "8001:443"
     environment:
-      - DB_CONNECTION_STRING = "Host=localhost;Port=5432;Database=tic-tac-toe-db;Username=postgres;Password=qwerty"
+      - DB_CONNECTION_STRING = "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=qwerty"
     depends_on:
       - postgres_image
     networks:
@@ -16,19 +16,19 @@ services:
   postgres_image:
     image: postgres:latest
     ports:
-      - "5432"
+      - "5432:5432"
     restart: always
     volumes:
-      - db_volume:/var/lib/postgresql/data
+      - db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "qwerty"
-      POSTGRES_DB: "tic-tac-toe-db"
     networks:
       - dockerapi-dev
 
 volumes:
-  db_volume:
+  db:
+    driver: local
     
 networks:
   dockerapi-dev:

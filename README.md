@@ -20,5 +20,5 @@
 ## Решение:
 
 ### [Документация](https://github.com/vecherochek/tic-tac-toe-webAPI/wiki)
-
+#### Примечание:
 Есть возможность развернуть docker-compose. Только в файле ([TicTacToe.API/DAL/Repositories/Contexts/GameDbContext.cs](https://github.com/vecherochek/tic-tac-toe-webAPI/blob/master/TicTacToe.API/DAL/Repositories/Contexts/GameDbContext.cs)) поменяйте в connection string Ip сервера на IPv4-адрес вашей машины. Понимаю, что захаркоженная строка это плохо....

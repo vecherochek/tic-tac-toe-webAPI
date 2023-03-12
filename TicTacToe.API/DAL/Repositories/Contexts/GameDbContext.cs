@@ -17,7 +17,8 @@ public class GameDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=gamedb;Username=postgres;Password=qwerty");
+        //захаркоженная строка это плохо, но я не смогла из докер композа сюда environment variable положить :(
+        optionsBuilder.UseNpgsql("Server=192.168.1.186;Port=5432;Database=postgres;Username=postgres;Password=qwerty");
     }
 
     protected override void OnModelCreating(ModelBuilder builder)

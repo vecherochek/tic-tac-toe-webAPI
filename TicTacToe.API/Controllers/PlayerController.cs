@@ -45,7 +45,7 @@ public class PlayerController : Controller
     /// </summary>
     /// <param name="nickName">Player nickname</param>
     /// <returns></returns>
-    [HttpGet("score/{nickname}")]
+    [HttpGet("score/{nickName}")]
     public GetPlayerScoreResponse GetPlayerScore(string nickName)
     {
         var score = _playerService.GetPlayerScoreByNickname(nickName);

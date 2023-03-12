@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text;
+using Microsoft.AspNetCore.Mvc;
 using TicTacToe.API.BLL.Services;
 using TicTacToe.API.Requests;
 using TicTacToe.API.Responses;
@@ -26,7 +27,7 @@ public class AuthController : Controller
     [HttpPost("login")]
     public AuthResponse Authorization(AuthRequest request)
     {
-        var player = AuthenticationService.GetPlayerByAuthData(request.Nickname, request.Password);
+        var player = AuthenticationService.GetPlayerByAuthData(request.Nickname, Encoding.ASCII.GetBytes(request.Password));
         return new AuthResponse(player);
     }
 
@@ -37,6 +38,6 @@ public class AuthController : Controller
     [HttpPost("register")]
     public void Registartion(RegistrationRequest request)
     {
-        RegistrationService.CreateNewPlayer(request.Nickanme, request.Password);
+        RegistrationService.CreateNewPlayer(request.Nickanme, Encoding.ASCII.GetBytes(request.Password));
     }
 }

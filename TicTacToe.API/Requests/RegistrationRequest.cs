@@ -5,4 +5,4 @@
 /// </summary>
 /// <param name="Nickanme">Player nickname</param>
 /// <param name="Password">Player nickname</param>
-public record RegistrationRequest(string Nickanme, byte[] Password);
+public record RegistrationRequest(string Nickanme, string Password);

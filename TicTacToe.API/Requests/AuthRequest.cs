@@ -5,4 +5,4 @@
 /// </summary>
 /// <param name="Nickname">Player nickname</param>
 /// <param name="Password">Player password</param>
-public record AuthRequest(string Nickname, byte[] Password);
+public record AuthRequest(string Nickname, string Password);

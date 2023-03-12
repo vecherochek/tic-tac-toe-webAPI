@@ -23,8 +23,8 @@ public class AuthentificationService : IAuthentificationService
         var player = _playerRepository.GetPlayerByNickname(nickname);
 
         if (player is null)
-            throw new InvalidOperationException("Invalid nickname");
-        if (player.SaltedPassword != password)
+            throw new InvalidOperationException("Player with this name doesn't exist");
+        if (!Enumerable.SequenceEqual(player.SaltedPassword, password))
             throw new InvalidOperationException("Invalid password");
 
         return player;

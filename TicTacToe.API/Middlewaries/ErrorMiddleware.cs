@@ -18,7 +18,7 @@ internal sealed class ErrorMiddleware
         {
             await _next.Invoke(context);
         }
-        catch (ValidationException e)
+        catch (InvalidOperationException e)
         {
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.BadRequest;

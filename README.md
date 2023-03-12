@@ -19,4 +19,4 @@
 
 ## Решение:
 
-### [Описание API](https://github.com/vecherochek/tic-tac-toe-webAPI/wiki)
+### [Документация](https://github.com/vecherochek/tic-tac-toe-webAPI/wiki)

@@ -11,8 +11,6 @@ var services = builder.Services;
 
 services.AddControllers();
 
-
-//services.AddDbContext<GameRedisDbContext>();
 services.AddDbContext<GameDbContext>();
 services.AddTransient<GameRepository>();
 services.AddTransient<PlayerRepository>();

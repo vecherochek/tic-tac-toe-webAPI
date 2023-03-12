@@ -29,7 +29,7 @@ services.AddSwaggerGen(options =>
         {
             Version = "v1",
             Title = "TicTacToe-Backend",
-            Description = "Классный сервис, но я не советую :3",
+            Description = "Это што",
         }
     );
     
